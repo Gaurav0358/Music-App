@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Track from './components/track/Track'
-import Radio from './components/radio/Radio'
+import Podcast from './components/podcast/podcast'
 import Playlist from './components/playlist/Playlist'
 import Album from './components/album/Album'
 
@@ -16,7 +16,7 @@ root.render(
       <Routes>
         <Route path='/' element={<App />}>
           <Route index element={<Track/>}/>
-          <Route path='radio' element={<Radio/>}/>
+          <Route path='podcast' element={<Podcast/>}/>
           <Route path='playlist' element={<Playlist/>}/>
           <Route path='album' element={<Album/>}/>
         </Route>

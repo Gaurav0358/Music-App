@@ -2,28 +2,37 @@ import React from 'react'
 import './App.css';
 import { Link, Outlet } from 'react-router-dom'
 import 'bootstrap'
-
+import Logo from './assets/logo.png'
 function App() {
   return (
-    <div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <Link class="navbar-brand" to="/">Zee Radio</Link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <Link class="nav-link active" aria-current="page" to="/">Track</Link>
-        <Link class="nav-link" to="radio">Radio</Link>
-        <Link class="nav-link" to="playlist">Playlist</Link>
-        <Link class="nav-link" to='album'>Album</Link>
+    <div className='container-fluid vh-100 w-100'> {/* main div*/}  
+      <div className='row row-cols-1 row-cols-md-2 align-item-start'> {/* parent div*/}
+         <div className='col col-md-2 text-center bg-nav vh-100'> {/* child 1 div*/}
+            <Link className='my-2' to='/'>
+              <img src={Logo} alt='logo' className='img-fluid mt-3 logo' width={180}/> 
+            </Link>
+           <div className='my-2'>
+              <ul className='list-group text-start'>
+                <li className='list-group-item bg-transparent border-0 my-2'>
+                  <Link className='fw-semibold mx-3 nav-link text-white' aria-current="page" to='/'>Track</Link>
+                </li>
+                <li className='list-group-item bg-transparent border-0 my-2'>
+                  <Link className='fw-semibold mx-3 nav-link text-white' aria-current="page" to='podcast'>Podcast</Link>
+                </li>
+                <li className='list-group-item bg-transparent border-0 my-2'>
+                  <Link className='fw-semibold mx-3 nav-link text-white' aria-current="page" to='playlist'>Playlist</Link>
+                </li>
+                <li className='list-group-item bg-transparent border-0 my-2'>
+                  <Link className='fw-semibold mx-3 nav-link text-white' aria-current="page" to='album'>Album</Link>
+                </li>
+              </ul> 
+           </div>
+          </div> 
+          <div className='col col-md-10 vh-100 overflow-y-auto bg-main'> {/* child 2 div*/}
+          <Outlet/>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
-<Outlet/>
-</div>
   );
 }
 
